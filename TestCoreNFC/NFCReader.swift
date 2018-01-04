@@ -12,6 +12,8 @@ import VYNFCKit
 
 class NFCReader: NSObject , NFCNDEFReaderSessionDelegate {
     
+    public var results: String = ""
+    
     func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
         
         for message in messages {
@@ -66,20 +68,25 @@ class NFCReader: NSObject , NFCNDEFReaderSessionDelegate {
                 } else {
                     
                     text = "Parsed but unhandled payload type"
-                    
                 }
                 
                 NSLog("%@", text)
-                
+                results = String(format:"%@%@\n", results, text);
                 DispatchQueue.main.async {
+                    // display results
+                    NotificationCenter.default.post(name: Notification.Name("scanresults"), object: nil, userInfo: ["results": self.results])
                     if urlString != "" {
-                        // Close NFC reader session and open URI after delay. Not all can be opened on iOS.
+                        
+                        //Close NFC reader session and open URI after delay.
+                        //Not all can be opened on iOS.
+                        
                         session.invalidate()
                         if let url = URL(string: urlString) {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
                             })
                         }
+                        
                     }
                 }
                 
@@ -92,7 +99,7 @@ class NFCReader: NSObject , NFCNDEFReaderSessionDelegate {
     }
     
     func beginSession() {
-        let session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: true)
+        let session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: false)
         session.begin()
     }
 }
