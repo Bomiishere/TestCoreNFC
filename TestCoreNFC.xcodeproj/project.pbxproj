@@ -18,6 +18,7 @@
 		F4A126CB1FF5ED4F004CDA49 /* TestCoreNFCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A126CA1FF5ED4F004CDA49 /* TestCoreNFCTests.swift */; };
 		F4A126D61FF5ED4F004CDA49 /* TestCoreNFCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A126D51FF5ED4F004CDA49 /* TestCoreNFCUITests.swift */; };
 		F4A126E51FF61BB0004CDA49 /* NFCReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A126E41FF61BB0004CDA49 /* NFCReader.swift */; };
+		F4C6D2991FFDCB1E0068ADCC /* VYNFCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C6D29A1FFDCB1E0068ADCC /* VYNFCKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		F4A126D71FF5ED4F004CDA49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4A126E31FF61AAF004CDA49 /* TestCoreNFC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestCoreNFC.entitlements; sourceTree = "<group>"; };
 		F4A126E41FF61BB0004CDA49 /* NFCReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCReader.swift; sourceTree = "<group>"; };
+		F4C6D29A1FFDCB1E0068ADCC /* VYNFCKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VYNFCKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4C6D2991FFDCB1E0068ADCC /* VYNFCKit.framework in Frameworks */,
 				51CB76B02BD76D47FD457CA7 /* Pods_TestCoreNFC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,6 +111,7 @@
 		9508ECD57896C88BB6E3F583 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F4C6D29A1FFDCB1E0068ADCC /* VYNFCKit.framework */,
 				76BD70C55D4DD4CBAAAF0862 /* Pods_TestCoreNFC.framework */,
 				DE69E1292EB9F00139AE73D3 /* Pods_TestCoreNFCTests.framework */,
 				F23CAA0E15BFA43C68935EE7 /* Pods_TestCoreNFCUITests.framework */,
