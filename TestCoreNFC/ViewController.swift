@@ -16,13 +16,6 @@ class ViewController: UIViewController {
     
     let nfcReader = NFCReader()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.scanButton.addTarget(self, action: #selector(scanButtonTapped), for: .touchUpInside)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateResultTextView), name: Notification.Name(rawValue: "scanresults"), object: nil)
-    }
-    
     @objc func updateResultTextView(notification: Notification) {
         if let userInfo = notification.userInfo as? [String:String],
             let updatedText = userInfo["results"] {
@@ -33,5 +26,13 @@ class ViewController: UIViewController {
     @objc func scanButtonTapped() {
         nfcReader.beginSession()
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.scanButton.addTarget(self, action: #selector(scanButtonTapped), for: .touchUpInside)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateResultTextView), name: Notification.Name(rawValue: "scanresults"), object: nil)
+    }
+    
 }
 
